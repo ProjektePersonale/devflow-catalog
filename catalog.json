@@ -1,0 +1,70 @@
+[
+  {
+    "type": "skill",
+    "name": "commit",
+    "title": "Conventional Commit",
+    "description": "Looks at the staged changes and writes a single conventional-commit message.",
+    "version": "1.0.0",
+    "author": "DevFlow",
+    "content": "description: Write a conventional commit for the staged changes\nLook at the staged changes with `git diff --cached` and write a single conventional-commit message.\n\nFormat: `type(scope): summary` where type is one of feat, fix, docs, style, refactor, test, chore.\nThe summary is imperative, present tense, max 72 characters, no trailing period.\nReply with the message only — ready to paste into `git commit -m`."
+  },
+  {
+    "type": "skill",
+    "name": "code-review",
+    "title": "Senior Code Review",
+    "description": "Reviews the working-tree diff and reports findings by severity.",
+    "version": "1.1.0",
+    "author": "DevFlow",
+    "content": "description: Review the working-tree diff and report findings by severity\nRun `git diff` (and `git diff --cached` if staged changes exist) and review the changes like a senior engineer.\n\nReport findings grouped by severity — P0 blocker, P1 should-fix, P2 nit — each with the file, the reasoning,\nand a concrete suggested fix. End with a one-line verdict: approve, approve-with-comments, or request-changes."
+  },
+  {
+    "type": "skill",
+    "name": "changelog",
+    "title": "Changelog Entry",
+    "description": "Turns the last commits into a tidy Keep-a-Changelog entry.",
+    "version": "1.0.0",
+    "author": "DevFlow catalog",
+    "content": "description: Write a Keep-a-Changelog entry from recent commits\nRun `git log --oneline -15` and write ONE changelog entry in Keep a Changelog style.\n\nOutput only the markdown list items (Added/Changed/Fixed sub-sections where fitting), terse,\nuser-facing (no file lists), max 6 bullets. Match the tone of existing CHANGELOG.md entries if present."
+  },
+  {
+    "type": "skill",
+    "name": "tdd",
+    "title": "Test-First Implement",
+    "description": "Implements a task strictly test-first (red → green → refactor).",
+    "version": "1.0.0",
+    "author": "DevFlow catalog",
+    "content": "description: Implement the task strictly test-first\nFor the requested change: 1) write a failing test that captures the behavior, 2) run it to confirm RED,\n3) implement the minimal code to pass, 4) run the full suite to confirm GREEN, 5) refactor only if needed.\nNever modify a test to make it pass unless the test itself encodes outdated behavior — say so explicitly."
+  },
+  {
+    "type": "mcp",
+    "name": "filesystem",
+    "title": "Filesystem (reference MCP server)",
+    "description": "Read/write/search access to directories you allow — the reference MCP server from the modelcontextprotocol org.",
+    "version": "1.0.0",
+    "author": "modelcontextprotocol",
+    "mcpConfig": { "command": "npx", "args": ["-y", "@modelcontextprotocol/server-filesystem", "."] }
+  },
+  {
+    "type": "mcp",
+    "name": "memory",
+    "title": "Memory (reference MCP server)",
+    "description": "Persistent knowledge-graph memory across sessions — the reference MCP server from the modelcontextprotocol org.",
+    "version": "1.0.0",
+    "author": "modelcontextprotocol",
+    "mcpConfig": { "command": "npx", "args": ["-y", "@modelcontextprotocol/server-memory"] }
+  },
+  {
+    "type": "plugin",
+    "name": "now",
+    "title": "Now (timestamp plugin)",
+    "description": "Returns the current local date/time — demonstrates command plugins (JSON in, text out).",
+    "version": "1.0.0",
+    "author": "DevFlow catalog",
+    "manifest": {
+      "name": "now",
+      "description": "Returns the current local timestamp",
+      "command": "node",
+      "args": ["-e", "process.stdout.write(new Date().toLocaleString())"]
+    }
+  }
+]
